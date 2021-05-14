@@ -29,14 +29,12 @@ const Dashboard = () => {
 
     await axios
       .get(
-        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`
-        // {
-        //   headers: {
-        //     "Access-Control-Allow-Origin": "*",
-        //   },
-        //   "Content-Type": "application/json",
-        //   mode: "no-cors",
-        // }
+        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       )
       .then((res) => setSearchResults(res.data));
     console.log(searchResults);
