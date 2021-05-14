@@ -25,12 +25,11 @@ const Dashboard = () => {
 
   const searchJobs = async (e) => {
     e.preventDefault();
-    console.log(searchTerm, searchLocation);
     smallScreenLocationSearch.classList.remove("force-display-block");
 
     await axios
       .get(
-        `https://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`
+        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`
         // {
         //   headers: {
         //     "Access-Control-Allow-Origin": "*",
