@@ -10,8 +10,8 @@ function App() {
     <>
       <Navbar />
       <Router>
-        <Route path="/dashboard" component={Dashboard} />
-        {/* <Route exact path="/dashboard/jobs/:id" component={JobShowPage} /> */}
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard/jobs/:id" component={JobShowPage} />
       </Router>
     </>
   );

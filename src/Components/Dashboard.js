@@ -45,9 +45,13 @@ const Dashboard = () => {
     console.log(job);
   };
 
+  const closeModal = () => {
+    setDisplayShowPage(false);
+  };
+
   return (
-    <>
-      <div className="dashboard-container">
+    <div id="show-job-container">
+      <div id="container" className="dashboard-container">
         <form onSubmit={searchJobs} className="search-container">
           <div className="primary-search-div">
             <BiSearch className="icon search-icon" />
@@ -99,16 +103,16 @@ const Dashboard = () => {
                     <img className="result-img" src={result.company_logo} />
                   </div>
                   <p className="result-type">{result.type}</p>
-                  {/* <Link to={`${url}/jobs/${result.id}`}> */}
                   <h2 className="result-title">{result.title}</h2>
-                  {/* </Link> */}
                   <h3 className="result-company">{result.company}</h3>
                   <h4 className="result-location">{result.location}</h4>
                 </div>
               ))
             : null}
         </div>
-        {showJob ? <JobShowPage job={selectedJob} /> : null}
+        {displayShowPage === true ? (
+          <JobShowPage closeModal={closeModal} job={selectedJob} />
+        ) : null}
       </div>
 
       {/* <Switch>
@@ -118,7 +122,7 @@ const Dashboard = () => {
           </Route>
         ))}
       </Switch> */}
-    </>
+    </div>
   );
 };
 

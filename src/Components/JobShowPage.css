@@ -1,0 +1,128 @@
+.show-job-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(128, 128, 128, 0.8);
+  z-index: 500;
+}
+
+.force-display-none {
+  display: none;
+}
+
+.job-show {
+  position: absolute;
+  top: 50px;
+  left: 25%;
+  height: 300px;
+  width: 50%;
+  z-index: 1000;
+}
+
+.company-info {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 2px;
+  z-index: 1000;
+  background-color: #fff;
+  height: 100px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 15px;
+  align-items: center;
+}
+
+.company-site-btn {
+  color: #5865e0;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  border-radius: 2px;
+  padding: 10px 20px;
+  height: 50px;
+  align-self: center;
+  text-decoration: none;
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-size: 18px;
+}
+
+.close-icon:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+.company-site-btn:hover {
+  border: 1px solid #5865e0;
+  cursor: pointer;
+}
+
+.company-info-verticle-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  text-align: center;
+  color: pink;
+}
+
+.show-page-title {
+  padding-left: 20px;
+  align-self: center;
+}
+
+.show-page-type {
+  padding-top: 20px;
+  padding-left: 22px;
+  color: #aaa;
+}
+
+.show-page-location {
+  color: #0989d3;
+  padding-left: 20px;
+  padding-right: 5px;
+  padding-bottom: 30px;
+}
+
+.section-header {
+  padding: 15px 5px;
+}
+
+.job-details {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 2px;
+  z-index: 1000;
+  background-color: #fff;
+  padding-left: 20px;
+  height: 400px;
+  overflow: scroll;
+}
+
+.long-copy {
+  font-size: 16px;
+  padding: 0px 5px;
+}
+
+.company-image {
+  height: 100px;
+  padding-left: 0px;
+  background-color: #0989d3;
+}
+
+.gray-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.75);
+}
