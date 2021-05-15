@@ -317,6 +317,15 @@ DASHBOARD
   }
 }
 
+Link {
+  color: #000;
+  text-decoration: none;
+}
+
+.force-display-none {
+  display: none !important;
+}
+
 @media only screen and (max-width: 600px) {
   .checkbox-search-container input,
   .checkbox-search-container p {
@@ -337,6 +346,10 @@ DASHBOARD
   .search-results {
     width: 90%;
   }
+}
+
+.job-show {
+  font-size: 18px;
 }
 
 @media only screen and (max-width: 500px) {
