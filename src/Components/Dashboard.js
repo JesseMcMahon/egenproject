@@ -5,7 +5,6 @@ import { AiTwotoneFilter } from "react-icons/ai";
 import JobShowPage from "./JobShowPage";
 import "../style.css";
 import axios from "axios";
-import { Switch, Route, Router, Link, useRouteMatch } from "react-router-dom";
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,8 +35,6 @@ const Dashboard = () => {
       )
       .then((res) => setSearchResults(res.data));
   };
-
-  let { path, url } = useRouteMatch();
 
   const showJob = (job) => {
     setSelectedJob(job);
@@ -114,14 +111,6 @@ const Dashboard = () => {
           <JobShowPage closeModal={closeModal} job={selectedJob} />
         ) : null}
       </div>
-
-      {/* <Switch>
-        {searchResults.map((result) => (
-          <Route exact path={`${path}/jobs/${result.id}`}>
-            <JobShowPage className="job-show-test" props={result} />
-          </Route>
-        ))}
-      </Switch> */}
     </div>
   );
 };
