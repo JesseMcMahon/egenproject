@@ -237,6 +237,12 @@ DASHBOARD
   border-radius: 5px;
   height: 250px;
   background-color: #fff;
+  border: 3px solid #fff;
+}
+
+.result-container:hover {
+  border: 3px solid #5865e0;
+  cursor: pointer;
 }
 
 .img-div {

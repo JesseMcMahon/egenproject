@@ -10,8 +10,8 @@ const JobShowPage = (props) => {
         <div className="company-info">
           <img className="company-image" src={props.job.company_logo} />
           <div className="company-info-vertical-flex">
-            <h4>{props.job.company}</h4>
-            <h4>{props.job.company_url}</h4>
+            <h4 className="company-name">{props.job.company}</h4>
+            <h4 className="company-url">{props.job.company_url}</h4>
           </div>
           <a
             className="company-site-btn"
