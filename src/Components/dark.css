@@ -1,0 +1,205 @@
+.make-dark {
+  background-color: #131822;
+}
+
+.make-dark .result-container {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  height: 250px;
+  background-color: #19212d;
+  border: 3px solid #19212d;
+}
+
+.make-dark .result-title {
+  padding-left: 20px;
+  padding-right: 5px;
+  color: #fff;
+}
+
+.make-dark .result-location {
+  color: #5865e0;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.make-dark .result-container:hover {
+  border: 3px solid #5865e0;
+  cursor: pointer;
+}
+
+.make-dark .search-container {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  width: 70%;
+  z-index: 100;
+  margin: -30px auto;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  height: 65px;
+  background-color: #131822;
+  position: relative;
+}
+
+.make-dark .primary-search-div {
+  flex: 2;
+  border-right: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #131822;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.make-dark .secondary-search-div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #131822;
+  color: #fff;
+}
+
+.make-dark .job-filter {
+  border: 0;
+  outline: none;
+  height: 65px;
+  text-align: center;
+  width: 80%;
+  font-size: 18px;
+  background-color: #131822;
+  color: #fff;
+}
+
+.make-dark .location-filter {
+  height: 65px;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  outline: none;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  width: 80%;
+  font-size: 18px;
+  background-color: #131822;
+  color: #fff;
+}
+
+.make-dark .checkbox-search-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+}
+
+/* --------------------------
+      DARK SHOW PAGE 
+--------------------------       */
+
+.make-dark .company-info {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 2px;
+  z-index: 1000;
+  background-color: #19212d;
+  height: 100px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 15px;
+  align-items: center;
+  border: 2px solid #19212d;
+  color: #fff;
+}
+
+.make-dark .company-site-btn {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px solid #5865e0;
+  background-color: #5865e0;
+  border-radius: 2px;
+  padding: 10px 20px;
+  height: 50px;
+  align-self: center;
+  text-decoration: none;
+}
+
+.make-dark .company-site-btn:hover {
+  border: 1px solid #5865e0;
+  background-color: #19212d;
+  cursor: pointer;
+}
+
+.make-dark .job-details {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 2px;
+  z-index: 1000;
+  background-color: #19212d;
+  padding-left: 20px;
+  height: 350px;
+  overflow: scroll;
+  margin-bottom: 25px;
+  border: 2px solid #19212d;
+  color: #fff;
+}
+
+@media only screen and (max-width: 950px) {
+  .search-results {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .make-dark .search-icon {
+    display: none;
+  }
+
+  .make-dark .filter-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .make-dark .secondary-search-div {
+    display: none;
+  }
+
+  .make-dark .checkbox-search-container {
+    flex: 1.5;
+    border-left: 1px solid #ccc;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .make-dark .search-results {
+    grid-template-columns: 1fr;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .make-dark .checkbox-search-container input,
+  .make-dark .checkbox-search-container p {
+    display: none;
+  }
+
+  .navbar-container {
+    border-bottom-left-radius: 0px;
+  }
+
+  .make-dark .primary-search-div {
+    border-right: none;
+  }
+  .make-dark .search-container {
+    width: 90%;
+  }
+}

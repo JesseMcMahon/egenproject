@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiTwotoneFilter } from "react-icons/ai";
 import JobShowPage from "./JobShowPage";
 import "../style.css";
+import "./dark.css";
+// import "./light.css";
 import axios from "axios";
 
 const Dashboard = () => {
@@ -16,6 +18,26 @@ const Dashboard = () => {
   const smallScreenLocationSearch = document.getElementById(
     "small-screen-location-search"
   );
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  const changeTheme = () => {
+    const themeContainer = document.getElementById("theme-container");
+    const bodyContainer = document.querySelector("body");
+    console.log(themeContainer);
+    setDarkMode(!darkMode);
+    if (darkMode === false) {
+      themeContainer.classList.add("make-dark");
+      bodyContainer.classList.add("make-dark");
+      themeContainer.classList.remove("make-light");
+      bodyContainer.classList.remove("make-light");
+    } else {
+      themeContainer.classList.add("make-light");
+      bodyContainer.classList.add("make-light");
+      themeContainer.classList.remove("make-dark");
+      bodyContainer.classList.remove("make-dark");
+    }
+  };
 
   const showSearchBar = () => {
     if (smallScreenLocationSearch.classList.contains("force-display-block")) {
@@ -52,70 +74,78 @@ const Dashboard = () => {
   };
 
   return (
-    <div id="show-job-container">
-      <div id="container" className="dashboard-container">
-        <form onSubmit={searchJobs} className="search-container">
-          <div className="primary-search-div">
-            <BiSearch className="icon search-icon" />
-            <input
-              className="job-filter"
-              type="text"
-              placeholder="Filter by title, company, expertise..."
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <AiTwotoneFilter
-              onClick={showSearchBar}
-              className="icon filter-icon"
-            />
-          </div>
-          <div className="secondary-search-div">
-            <HiLocationMarker className="icon location-icon" />
-            <input
-              className="location-filter"
-              type="text"
-              placeholder="Filter by location..."
-              onChange={(e) => setSearchLocation(e.target.value)}
-            />
-          </div>
+    <div id="theme-container" className="dashboard-container make-light">
+      <div className="toggle-container">
+        <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+        <div className="switch-checkbox">
+          <label className="switch">
+            <input type="checkbox" onClick={changeTheme} />
+            <span className="slider round"> </span>
+          </label>
+        </div>
+        <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
+      </div>
+      <form onSubmit={searchJobs} className="search-container">
+        <div className="primary-search-div">
+          <BiSearch className="icon search-icon" />
           <input
+            className="job-filter"
+            type="text"
+            placeholder="Filter by title, company, expertise..."
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <AiTwotoneFilter
+            onClick={showSearchBar}
+            className="icon filter-icon"
+          />
+        </div>
+        <div className="secondary-search-div">
+          <HiLocationMarker className="icon location-icon" />
+          <input
+            className="location-filter"
             type="text"
             placeholder="Filter by location..."
-            className="filter-search-div"
-            id="small-screen-location-search"
             onChange={(e) => setSearchLocation(e.target.value)}
           />
-          <div className="checkbox-search-container">
-            <input
-              type="checkbox"
-              onClick={(e) => setFullTimeSelected(!fullTimeSelected)}
-            />
-            <p>Full Time Only</p>
-            <button className="search-btn">Search</button>
-          </div>
-        </form>
-        <div className="search-results">
-          {searchResults
-            ? searchResults.map((result) => (
-                <div
-                  onClick={() => showJob(result)}
-                  key={result.id}
-                  className="result-container"
-                >
-                  <div className="img-div">
-                    <img className="result-img" src={result.company_logo} />
-                  </div>
-                  <p className="result-type">{result.type}</p>
-                  <h2 className="result-title">{result.title}</h2>
-                  <h3 className="result-company">{result.company}</h3>
-                  <h4 className="result-location">{result.location}</h4>
-                </div>
-              ))
-            : null}
         </div>
-        {displayShowPage === true ? (
-          <JobShowPage closeModal={closeModal} job={selectedJob} />
-        ) : null}
+        <input
+          type="text"
+          placeholder="Filter by location..."
+          className="filter-search-div"
+          id="small-screen-location-search"
+          onChange={(e) => setSearchLocation(e.target.value)}
+        />
+        <div className="checkbox-search-container">
+          <input
+            type="checkbox"
+            onClick={(e) => setFullTimeSelected(!fullTimeSelected)}
+          />
+          <p>Full Time Only</p>
+          <button className="search-btn">Search</button>
+        </div>
+      </form>
+      <div className="search-results">
+        {searchResults
+          ? searchResults.map((result) => (
+              <div
+                onClick={() => showJob(result)}
+                key={result.id}
+                className="result-container"
+              >
+                <div className="img-div">
+                  <img className="result-img" src={result.company_logo} />
+                </div>
+                <p className="result-type">{result.type}</p>
+                <h2 className="result-title">{result.title}</h2>
+                <h3 className="result-company">{result.company}</h3>
+                <h4 className="result-location">{result.location}</h4>
+              </div>
+            ))
+          : null}
       </div>
+      {displayShowPage === true ? (
+        <JobShowPage closeModal={closeModal} job={selectedJob} />
+      ) : null}
     </div>
   );
 };
