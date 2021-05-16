@@ -45,6 +45,10 @@ const JobShowPage = (props) => {
             amet..", comes from a line in section 1.10.32.
           </p>
         </div>
+        <div className="how-to-apply">
+          <h3>How to Apply</h3>
+          <p>{props.job.how_to_apply}</p>
+        </div>
       </div>
     </div>
   );
