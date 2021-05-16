@@ -31,7 +31,12 @@ const Dashboard = () => {
 
     await axios
       .get(
-        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`
+        `https://thingproxy.freeboard.io/fetch/http://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*.github.com",
+          },
+        }
       )
       .then((res) => setSearchResults(res.data));
   };
