@@ -7,8 +7,10 @@ import "../style.css";
 import "./dark.css";
 // import "./light.css";
 import axios from "axios";
+import { APIKEY } from "./config.js";
 
 const Dashboard = () => {
+  const [userCity, setUserCity] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [displayShowPage, setDisplayShowPage] = useState(false);
   const [selectedJob, setSelectedJob] = useState({});
@@ -20,6 +22,43 @@ const Dashboard = () => {
   );
 
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+        successfulLookup,
+        console.log
+      );
+    } else {
+      console.log("not supported in this browser");
+    }
+  }, []);
+
+  useEffect(async () => {
+    await axios
+      .get(
+        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
+      )
+      .then((res) => setSearchResults(res.data))
+      .then(
+        searchResults.length === 0
+          ? axios
+              .get(
+                `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=engineer&full_time=&location=remote`
+              )
+              .then((res) => setSearchResults(res.data))
+          : null
+      );
+  }, [userCity]);
+
+  const successfulLookup = async (position) => {
+    const { latitude, longitude } = position.coords;
+    await axios
+      .get(
+        `https://us1.locationiq.com/v1/reverse.php?key=${APIKEY}&lat=${latitude}&lon=${longitude}&format=json`
+      )
+      .then((res) => setUserCity(res.data.address.city));
+  };
 
   const changeTheme = () => {
     const themeContainer = document.getElementById("theme-container");
@@ -53,7 +92,7 @@ const Dashboard = () => {
 
     await axios
       .get(
-        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&${fullTimeSelected}&location=${searchLocation}`,
+        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&full_time=${fullTimeSelected}&location=${searchLocation}`,
         {
           headers: {
             "Access-Control-Allow-Origin": "https://thingproxy.freeboard.io",
