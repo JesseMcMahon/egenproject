@@ -44,7 +44,7 @@ const Dashboard = () => {
   const successfulLookup = async (position) => {
     const { latitude, longitude } = position.coords;
     await axios
-      .get("http://localhost:5000/userlocation", {
+      .get("/userlocation", {
         params: {
           APIKEY: APIKEY,
           latitude: latitude,
