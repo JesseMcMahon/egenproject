@@ -101,6 +101,12 @@
   color: #fff;
 }
 
+.make-dark .search-btn:hover {
+  cursor: pointer;
+  background-color: #131822;
+  color: #fff;
+}
+
 /* --------------------------
       DARK SHOW PAGE 
 --------------------------       */
@@ -138,6 +144,11 @@
   border: 1px solid #5865e0;
   background-color: #19212d;
   cursor: pointer;
+}
+
+.make-dark .apply-now-btn button:hover {
+  color: #fff;
+  background-color: #19212d;
 }
 
 .make-dark .job-details {

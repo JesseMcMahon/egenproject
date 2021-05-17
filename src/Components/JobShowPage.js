@@ -24,9 +24,16 @@ const JobShowPage = (props) => {
           <AiOutlineClose className="close-icon" onClick={props.closeModal} />
         </div>
         <div className="job-details">
-          <p className="show-page-type">{props.job.type}</p>
-          <h1 className="show-page-title">{props.job.title}</h1>
-          <h3 className="show-page-location">{props.job.location}</h3>
+          <div className="details-apply-btn">
+            <div className="quick-details">
+              <p className="show-page-type">{props.job.type}</p>
+              <h1 className="show-page-title">{props.job.title}</h1>
+              <h3 className="show-page-location">{props.job.location}</h3>
+            </div>
+            <div className="apply-now-btn">
+              <button>Apply Now</button>
+            </div>
+          </div>
           <h2 className="section-header">Description</h2>
           <p className="long-copy">{props.job.description}</p>
           <h2 className="section-header">Requirements</h2>

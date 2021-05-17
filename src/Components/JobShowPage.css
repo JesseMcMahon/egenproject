@@ -98,6 +98,33 @@
   text-align: center;
 }
 
+.details-apply-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.apply-now-btn {
+  padding-right: 50px;
+}
+
+.apply-now-btn button {
+  color: #fff;
+  font-size: 16px;
+  background-color: #5865e0;
+  border: 1px solid #5865e0;
+  border-radius: 2px;
+  padding: 10px 20px;
+  height: 50px;
+  align-self: center;
+}
+
+.apply-now-btn button:hover {
+  color: #5865e0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .show-page-title {
   padding-left: 20px;
   align-self: center;
@@ -170,6 +197,10 @@
   }
 
   .company-image {
+    display: none;
+  }
+
+  .apply-now-btn {
     display: none;
   }
 }
