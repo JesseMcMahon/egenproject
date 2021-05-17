@@ -58,16 +58,21 @@ const Dashboard = () => {
             },
           })
           .then((res) => setSearchResults(res.data[0]))
+      )
+      .then(
+        searchResults.length === 0
+          ? axios
+              .get(
+                `https://dry-fortress-73097.herokuapp.com/locationbasedsearch`,
+                {
+                  params: {
+                    userCity: "remote",
+                  },
+                }
+              )
+              .then((res) => setSearchResults(res.data[0]))
+          : null
       );
-    // .then(
-    //   searchResults.length === 0
-    //     ? axios
-    //         .get(
-    //           `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=engineer&full_time=&location=remote`
-    //         )
-    //         .then((res) => setSearchResults(res.data))
-    //     : null
-    // );
   };
 
   const changeTheme = () => {
