@@ -72,7 +72,6 @@ const Dashboard = () => {
   const changeTheme = () => {
     const themeContainer = document.getElementById("theme-container");
     const bodyContainer = document.querySelector("body");
-    console.log(themeContainer);
     setDarkMode(!darkMode);
     if (darkMode === false) {
       themeContainer.classList.add("make-dark");
@@ -113,7 +112,6 @@ const Dashboard = () => {
   const showJob = (job) => {
     setSelectedJob(job);
     setDisplayShowPage(true);
-    console.log(job);
   };
 
   const closeModal = () => {

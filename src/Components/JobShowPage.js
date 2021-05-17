@@ -3,7 +3,6 @@ import "./JobShowPage.css";
 import { AiOutlineClose } from "react-icons/ai";
 
 const JobShowPage = (props) => {
-  console.log(props);
   return (
     <div className="show-job-container">
       <div className="job-show">
