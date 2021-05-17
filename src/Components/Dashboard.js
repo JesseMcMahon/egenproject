@@ -59,7 +59,7 @@ const Dashboard = () => {
               userCity: userCity,
             },
           })
-          .then((res) => console.log(res.data))
+          .then((res) => setSearchResults(res.data[0]))
       );
     // .then(
     //   searchResults.length === 0
