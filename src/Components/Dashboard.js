@@ -22,16 +22,16 @@ const Dashboard = () => {
 
   const [darkMode, setDarkMode] = useState(false);
 
-  // useEffect(() => {
-  //   if (window.navigator.geolocation) {
-  //     window.navigator.geolocation.getCurrentPosition(
-  //       successfulLookup,
-  //       console.log
-  //     );
-  //   } else {
-  //     console.log("not supported in this browser");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+        successfulLookup,
+        console.log
+      );
+    } else {
+      console.log("not supported in this browser");
+    }
+  }, []);
 
   useEffect(() => {
     console.log("hello");
@@ -44,10 +44,14 @@ const Dashboard = () => {
   const successfulLookup = async (position) => {
     const { latitude, longitude } = position.coords;
     await axios
-      .get(
-        `https://us1.locationiq.com/v1/reverse.php?key=${APIKEY}&lat=${latitude}&lon=${longitude}&format=json`
-      )
-      .then((res) => setUserCity(res.data.address.city))
+      .get("http://localhost:5000/userlocation", {
+        params: {
+          APIKEY: APIKEY,
+          latitude: latitude,
+          longitude: longitude,
+        },
+      })
+      .then((res) => console.log(res.data[0].address.city))
       .then(
         axios
           .get(
