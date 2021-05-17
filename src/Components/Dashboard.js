@@ -51,14 +51,16 @@ const Dashboard = () => {
           longitude: longitude,
         },
       })
-      .then((res) => console.log(res.data[0].address.city));
-    // .then(
-    //   axios
-    //     .get(
-    //       `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
-    //     )
-    //     .then((res) => setSearchResults(res.data))
-    // )
+      .then((res) => setUserCity(res.data[0].address.city))
+      .then(
+        axios
+          .get(`https://dry-fortress-73097.herokuapp.com/locationbasedsearch`, {
+            params: {
+              userCity: userCity,
+            },
+          })
+          .then((res) => console.log(res.data))
+      );
     // .then(
     //   searchResults.length === 0
     //     ? axios
