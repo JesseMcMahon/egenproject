@@ -5,7 +5,6 @@ import { AiTwotoneFilter } from "react-icons/ai";
 import JobShowPage from "./JobShowPage";
 import "../style.css";
 import "./dark.css";
-// import "./light.css";
 import axios from "axios";
 import { APIKEY } from "./config.js";
 
@@ -34,12 +33,20 @@ const Dashboard = () => {
     }
   }, []);
 
-  useEffect(async () => {
+  const successfulLookup = async (position) => {
+    const { latitude, longitude } = position.coords;
     await axios
       .get(
-        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
+        `https://us1.locationiq.com/v1/reverse.php?key=${APIKEY}&lat=${latitude}&lon=${longitude}&format=json`
       )
-      .then((res) => setSearchResults(res.data))
+      .then((res) => setUserCity(res.data.address.city))
+      .then(
+        axios
+          .get(
+            `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
+          )
+          .then((res) => setSearchResults(res.data))
+      )
       .then(
         searchResults.length === 0
           ? axios
@@ -49,15 +56,6 @@ const Dashboard = () => {
               .then((res) => setSearchResults(res.data))
           : null
       );
-  }, [userCity]);
-
-  const successfulLookup = async (position) => {
-    const { latitude, longitude } = position.coords;
-    await axios
-      .get(
-        `https://us1.locationiq.com/v1/reverse.php?key=${APIKEY}&lat=${latitude}&lon=${longitude}&format=json`
-      )
-      .then((res) => setUserCity(res.data.address.city));
   };
 
   const changeTheme = () => {

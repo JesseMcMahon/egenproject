@@ -45,8 +45,6 @@ span {
 
 .switch input {
   opacity: 0;
-  width: 0;
-  height: 0;
 }
 
 .switch {
@@ -63,7 +61,7 @@ span {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #666;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -245,7 +243,6 @@ DASHBOARD
   margin-top: -40px;
   background-color: #5865e0;
   border-radius: 10px;
-  /* text-align: center; */
 }
 
 .result-img {
