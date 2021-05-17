@@ -22,15 +22,23 @@ const Dashboard = () => {
 
   const [darkMode, setDarkMode] = useState(false);
 
+  // useEffect(() => {
+  //   if (window.navigator.geolocation) {
+  //     window.navigator.geolocation.getCurrentPosition(
+  //       successfulLookup,
+  //       console.log
+  //     );
+  //   } else {
+  //     console.log("not supported in this browser");
+  //   }
+  // }, []);
+
   useEffect(() => {
-    if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(
-        successfulLookup,
-        console.log
-      );
-    } else {
-      console.log("not supported in this browser");
-    }
+    console.log("hello");
+    axios
+      .get("https://dry-fortress-73097.herokuapp.com/")
+      .then((res) => console.log(res));
+    console.log("wtf");
   }, []);
 
   const successfulLookup = async (position) => {
