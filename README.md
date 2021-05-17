@@ -5,7 +5,7 @@
 
 Copy link to repository, paste it in your text editor like so:
 
-### `git clone <github repo link>`
+### `git clone https://github.com/JesseMcMahon/egenproject.git`
 
 
 ## Step 2: Install dependencies
