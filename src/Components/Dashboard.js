@@ -44,30 +44,30 @@ const Dashboard = () => {
   const successfulLookup = async (position) => {
     const { latitude, longitude } = position.coords;
     await axios
-      .get("/userlocation", {
+      .get("https://dry-fortress-73097.herokuapp.com/userlocation", {
         params: {
           APIKEY: APIKEY,
           latitude: latitude,
           longitude: longitude,
         },
       })
-      .then((res) => console.log(res.data[0].address.city))
-      .then(
-        axios
-          .get(
-            `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
-          )
-          .then((res) => setSearchResults(res.data))
-      )
-      .then(
-        searchResults.length === 0
-          ? axios
-              .get(
-                `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=engineer&full_time=&location=remote`
-              )
-              .then((res) => setSearchResults(res.data))
-          : null
-      );
+      .then((res) => console.log(res.data[0].address.city));
+    // .then(
+    //   axios
+    //     .get(
+    //       `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=&full_time=&location=${userCity}`
+    //     )
+    //     .then((res) => setSearchResults(res.data))
+    // )
+    // .then(
+    //   searchResults.length === 0
+    //     ? axios
+    //         .get(
+    //           `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=engineer&full_time=&location=remote`
+    //         )
+    //         .then((res) => setSearchResults(res.data))
+    //     : null
+    // );
   };
 
   const changeTheme = () => {
