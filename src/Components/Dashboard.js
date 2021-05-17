@@ -33,12 +33,6 @@ const Dashboard = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("https://dry-fortress-73097.herokuapp.com/")
-  //     .then((res) => console.log(res));
-  // }, []);
-
   const successfulLookup = async (position) => {
     const { latitude, longitude } = position.coords;
     await axios
@@ -106,15 +100,14 @@ const Dashboard = () => {
     smallScreenLocationSearch.classList.remove("force-display-block");
 
     await axios
-      .get(
-        `https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json?description=${searchTerm}&full_time=${fullTimeSelected}&location=${searchLocation}`,
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "https://thingproxy.freeboard.io",
-          },
-        }
-      )
-      .then((res) => setSearchResults(res.data));
+      .get(`https://dry-fortress-73097.herokuapp.com/getjobs`, {
+        params: {
+          searchTerm: searchTerm,
+          fullTimeSelected: fullTimeSelected,
+          searchLocation: searchLocation,
+        },
+      })
+      .then((res) => console.log(res.data));
   };
 
   const showJob = (job) => {
