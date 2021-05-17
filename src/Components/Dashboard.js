@@ -33,13 +33,11 @@ const Dashboard = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("hello");
-    axios
-      .get("https://dry-fortress-73097.herokuapp.com/")
-      .then((res) => console.log(res));
-    console.log("wtf");
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://dry-fortress-73097.herokuapp.com/")
+  //     .then((res) => console.log(res));
+  // }, []);
 
   const successfulLookup = async (position) => {
     const { latitude, longitude } = position.coords;
