@@ -107,7 +107,7 @@ const Dashboard = () => {
           searchLocation: searchLocation,
         },
       })
-      .then((res) => console.log(res.data));
+      .then((res) => setSearchResults(res.data[0]));
   };
 
   const showJob = (job) => {
