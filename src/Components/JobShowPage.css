@@ -31,7 +31,7 @@
   justify-content: space-between;
   padding-right: 15px;
   align-items: center;
-  border: 2px solid #5865e0;
+  border: 5px solid #19212d;
 }
 
 .how-to-apply {
@@ -60,6 +60,7 @@
   color: #5865e0;
   font-weight: bold;
   font-size: 16px;
+  width: 150px;
   border: 1px solid #eee;
   background-color: #eee;
   border-radius: 2px;
@@ -67,6 +68,7 @@
   height: 50px;
   align-self: center;
   text-decoration: none;
+  text-align: center;
 }
 
 .close-icon {
@@ -92,7 +94,14 @@
 }
 
 .company-name {
-  text-align: center;
+  padding-left: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.company-url {
+  padding-left: 10px;
+  font-size: 12px;
 }
 
 .details-apply-btn {
@@ -152,20 +161,21 @@
   background-color: #fff;
   padding-left: 20px;
   height: 350px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
   margin-bottom: 25px;
-  border: 2px solid #5865e0;
+  border: 10px solid #19212d;
 }
 
 .long-copy {
   font-size: 16px;
-  padding: 0px 5px;
+  padding: 5px 15px;
 }
 
 .company-image {
-  height: 96px;
+  height: 90px;
   padding-left: 0px;
-  max-width: 200px;
+  width: 200px;
 }
 
 .gray-overlay {
@@ -183,8 +193,7 @@
   }
 
   .company-site-btn {
-    font-size: 15px;
-    width: 150px;
+    width: 200px;
   }
 }
 
@@ -198,7 +207,7 @@
   }
 
   .company-name {
-    padding-left: 15px;
+    padding-left: 10px;
   }
 
   .company-url {
@@ -236,8 +245,8 @@
     padding-left: 7px;
   }
 
-  .company-site-btn {
+  /* .company-site-btn {
     font-size: 15px;
     width: 150px;
-  }
+  } */
 }
